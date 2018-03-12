@@ -7,6 +7,8 @@ const theTimer = document.querySelector(".timer");
 // global variable for timer set to zero
 // global timer variable an array for minutes, seconds, hundreths of seconds, thousandths of seconds
 var timer = [0, 0, 0, 0];
+var interval
+var timerRunning = false
 // Add leading zero to numbers 9 or below (purely for aesthetics):
 function leadingZero(time) {
   //conditional statement to get a leding zero
@@ -47,6 +49,7 @@ function spellCheck() {
 
   //Test if textEntered and originText are the same
   if (textEntered === originText) {
+      clearInterval(interval)
     //Border colour will change to green if text matches exactly
     testWrapper.style.borderColor = "#429890";
   } else {
@@ -64,9 +67,10 @@ function spellCheck() {
 function start() {
   //Detect just the very first key press
   let textEnteredLength = testArea.value.length;
-  if (textEnteredLength === 0) {
+  if (textEnteredLength === 0 && !timerRunning) {
+      timerRunning = true
     // When first key pressed this will start timer setInterval will run every thousandth of a second
-    setInterval(runTimer, 10);
+    interval = setInterval(runTimer, 10);
   }
   console.log(textEnteredLength);
 }
