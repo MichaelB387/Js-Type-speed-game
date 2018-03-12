@@ -12,8 +12,10 @@ var timer = [0,0,0,0]
 
 // Run a standard minute/second/hundredths timer:
 function runTimer(){
-    theTimer.innerHTML = timer
-    timer++
+    let currentTime = timer[0] + ":" + timer[1] + ":" + timer[2]
+    theTimer.innerHTML = currentTime
+    //Update last position of timer array
+    timer[3]++
 }
 
 
