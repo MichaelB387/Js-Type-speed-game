@@ -15,6 +15,11 @@ const theTimer = document.querySelector(".timer");
 
 
 // Start the timer:
+function start() {
+    //Detect just the very first key press
+    let textEnteredLength = testArea.value.length
+    console.log(textEnteredLength)
+}
 
 
 // Reset everything:
