@@ -16,6 +16,17 @@ function runTimer(){
     theTimer.innerHTML = currentTime
     //Update last position of timer array
     timer[3]++
+
+    // Math equations for timer
+    // Minutes
+    timer[0] = Math.floor((timer[3]/100)/60)
+    // Seconds
+    timer[1] = Math.floor((timer[3]/100) - (timer[0] * 60))
+    //Hundreth of a second
+    timer[2] = Math.floor(timer[3] - (timer[1] * 100) - (timer[0] * 6000))
+    
+    
+
 }
 
 
