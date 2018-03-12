@@ -5,7 +5,8 @@ const resetButton = document.querySelector("#reset");
 const theTimer = document.querySelector(".timer");
 
 // global variable for timer set to zero
-var timer = 0 
+// global timer variable an array for minutes, seconds, hundreths of seconds, thousandths of seconds
+var timer = [0,0,0,0] 
 // Add leading zero to numbers 9 or below (purely for aesthetics):
 
 
