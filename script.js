@@ -6,88 +6,80 @@ const theTimer = document.querySelector(".timer");
 
 // global variable for timer set to zero
 // global timer variable an array for minutes, seconds, hundreths of seconds, thousandths of seconds
-var timer = [0,0,0,0] 
+var timer = [0, 0, 0, 0];
 // Add leading zero to numbers 9 or below (purely for aesthetics):
-function leadingZero(time){
-    //conditional statement to get a leding zero
-    if (time <= 9) {
-        // will display a leading zero 0 for numbers 1 through 9
-        time = "0" + time
-    }
-    return time
-
+function leadingZero(time) {
+  //conditional statement to get a leding zero
+  if (time <= 9) {
+    // will display a leading zero 0 for numbers 1 through 9
+    time = "0" + time;
+  }
+  return time;
 }
 
 // Run a standard minute/second/hundredths timer:
-function runTimer(){
-    let currentTime = leadingZero(timer[0]) + ":" + leadingZero(timer[1]) + ":" + leadingZero(timer[2])
-    theTimer.innerHTML = currentTime
-    //Update last position of timer array
-    timer[3]++
+function runTimer() {
+  let currentTime =
+    leadingZero(timer[0]) +
+    ":" +
+    leadingZero(timer[1]) +
+    ":" +
+    leadingZero(timer[2]);
+  theTimer.innerHTML = currentTime;
+  //Update last position of timer array
+  timer[3]++;
 
-    // Math equations for timer
-    // Minutes
-    timer[0] = Math.floor((timer[3]/100)/60)
-    // Seconds
-    timer[1] = Math.floor((timer[3]/100) - (timer[0] * 60))
-    //Hundreth of a second
-    timer[2] = Math.floor(timer[3] - (timer[1] * 100) - (timer[0] * 6000))
-    
-    
-
+  // Math equations for timer
+  // Minutes
+  timer[0] = Math.floor(timer[3] / 100 / 60);
+  // Seconds
+  timer[1] = Math.floor(timer[3] / 100 - timer[0] * 60);
+  //Hundreth of a second
+  timer[2] = Math.floor(timer[3] - timer[1] * 100 - timer[0] * 6000);
 }
-
 
 // Match the text entered with the provided text on the page:
-function spellCheck(){
-    let textEntered = testArea.value
-    //substring treats a string of text as an array and allows you to pull out text to be used as a substring
-    // Two arguments, 0 where to start, textEntered.length the length of the text
-    let originTextMatch = originText.substring(0,textEntered.length)
+function spellCheck() {
+  let textEntered = testArea.value;
+  //substring treats a string of text as an array and allows you to pull out text to be used as a substring
+  // Two arguments, 0 where to start, textEntered.length the length of the text
+  let originTextMatch = originText.substring(0, textEntered.length);
 
-    //Test if textEntered and originText are the same
-    if (textEntered === originText){
-        //Border colour will change to green if text matches exactly
-        testWrapper.style.borderColor = "#429890"
+  //Test if textEntered and originText are the same
+  if (textEntered === originText) {
+    //Border colour will change to green if text matches exactly
+    testWrapper.style.borderColor = "#429890";
+  } else {
+    if (textEntered === originTextMatch) {
+      //If text matches wrapper will be blue
+      testWrapper.style.borderColor = "#65CCf3";
     } else {
-        if (textEntered === originTextMatch) {
-            //If text matches wrapper will be blue
-        testWrapper.style.borderColor = "#65CCf3"           
-        }
-        else {
-            //If text doesn't match wrapper will be orange
-        testWrapper.style.borderColor = "#E95D0F"
-            
-        }
-
+      //If text doesn't match wrapper will be orange
+      testWrapper.style.borderColor = "#E95D0F";
     }
-
+  }
 }
-
 
 // Start the timer:
 function start() {
-    //Detect just the very first key press
-    let textEnteredLength = testArea.value.length
-    if (textEnteredLength === 0) {
-        // When first key pressed this will start timer setInterval will run every thousandth of a second
-        setInterval(runTimer, 10)
-    }
-    console.log(textEnteredLength)
+  //Detect just the very first key press
+  let textEnteredLength = testArea.value.length;
+  if (textEnteredLength === 0) {
+    // When first key pressed this will start timer setInterval will run every thousandth of a second
+    setInterval(runTimer, 10);
+  }
+  console.log(textEnteredLength);
 }
-
 
 // Reset everything:
-function reset(){
-    console.log("reset button has been pressed")
+function reset() {
+  console.log("reset button has been pressed");
 }
-
 
 // Event listeners for keyboard input and the reset button:
 // Event listener "keypress" listens out for when key is pressed
-testArea.addEventListener("keypress", start, false)
+testArea.addEventListener("keypress", start, false);
 // Event listener "keyup" listens out for when you let go of the key and spellCheck function will run
-testArea.addEventListener("keyup", spellCheck, false)
+testArea.addEventListener("keyup", spellCheck, false);
 // Event listener "click" listens out for when reset button is clicked to run reset function
-resetButton.addEventListener("click", reset, false)
-
+resetButton.addEventListener("click", reset, false);
