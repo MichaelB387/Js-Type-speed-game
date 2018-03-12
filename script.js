@@ -12,6 +12,10 @@ const theTimer = document.querySelector(".timer");
 
 
 // Match the text entered with the provided text on the page:
+function spellCheck(){
+    let textEntered = testArea.value
+      console.log(textEntered)
+}
 
 
 // Start the timer:
