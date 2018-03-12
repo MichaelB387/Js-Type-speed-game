@@ -9,6 +9,12 @@ const theTimer = document.querySelector(".timer");
 var timer = [0,0,0,0] 
 // Add leading zero to numbers 9 or below (purely for aesthetics):
 function leadingZero(time){
+    //conditional statement to get a leding zero
+    if (time <= 9) {
+        // will display a leading zero 0 for numbers 1 through 9
+        time = "0" + time
+    }
+    return time
 
 }
 
