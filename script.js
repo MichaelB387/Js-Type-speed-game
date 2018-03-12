@@ -28,3 +28,6 @@ function start() {
 // Event listeners for keyboard input and the reset button:
 // Event listener "keypress" listens out for when key is pressed
 testArea.addEventListener("keypress", start, false)
+// Event listenr "keyup" listens out for when you let go of the key and spellCheck function will run
+testArea.addEventListener("keyup", spellCheck, false)
+
