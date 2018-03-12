@@ -8,7 +8,9 @@ const theTimer = document.querySelector(".timer");
 // global timer variable an array for minutes, seconds, hundreths of seconds, thousandths of seconds
 var timer = [0,0,0,0] 
 // Add leading zero to numbers 9 or below (purely for aesthetics):
+function leadingZero(time){
 
+}
 
 // Run a standard minute/second/hundredths timer:
 function runTimer(){
