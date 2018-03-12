@@ -22,6 +22,10 @@ function spellCheck(){
 function start() {
     //Detect just the very first key press
     let textEnteredLength = testArea.value.length
+    if (textEnteredLength === 0) {
+        // When first key pressed this will start timer setInterval will run every thousandth of a second
+        setInterval(runTimer, 10)
+    }
     console.log(textEnteredLength)
 }
 
