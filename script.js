@@ -41,7 +41,27 @@ function runTimer(){
 // Match the text entered with the provided text on the page:
 function spellCheck(){
     let textEntered = testArea.value
-      console.log(textEntered)
+    //substring treats a string of text as an array and allows you to pull out text to be used as a substring
+    // Two arguments, 0 where to start, textEntered.length the length of the text
+    let originTextMatch = originText.substring(0,textEntered.length)
+
+    //Test if textEntered and originText are the same
+    if (textEntered === originText){
+        //Border colour will change to green if text matches exactly
+        testWrapper.style.borderColor = "#429890"
+    } else {
+        if (textEntered === originTextMatch) {
+            //If text matches wrapper will be blue
+        testWrapper.style.borderColor = "#65CCf3"           
+        }
+        else {
+            //If text doesn't match wrapper will be orange
+        testWrapper.style.borderColor = "#E95D0F"
+            
+        }
+
+    }
+
 }
 
 
