@@ -88,7 +88,7 @@ function reset() {
 
     //Front end
     testArea.value = ""
-    timer.innerHTML = "00:00:00"
+    theTimer.innerHTML = "00:00:00"
     testWrapper.style.borderColor = "grey"
 }
 
