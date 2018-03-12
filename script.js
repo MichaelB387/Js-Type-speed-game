@@ -34,4 +34,5 @@ function start() {
 testArea.addEventListener("keypress", start, false)
 // Event listenr "keyup" listens out for when you let go of the key and spellCheck function will run
 testArea.addEventListener("keyup", spellCheck, false)
+resetButton.addEventListener("click", reset, false)
 
