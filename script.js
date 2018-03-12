@@ -20,7 +20,7 @@ function leadingZero(time){
 
 // Run a standard minute/second/hundredths timer:
 function runTimer(){
-    let currentTime = timer[0] + ":" + timer[1] + ":" + timer[2]
+    let currentTime = leadingZero(timer[0]) + ":" + leadingZero(timer[1]) + ":" + leadingZero(timer[2])
     theTimer.innerHTML = currentTime
     //Update last position of timer array
     timer[3]++
