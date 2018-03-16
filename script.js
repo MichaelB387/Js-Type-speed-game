@@ -47,7 +47,7 @@ function spellCheck() {
   // Two arguments, 0 where to start, textEntered.length the length of the text
   let originTextMatch = originText.substring(0, textEntered.length);
 
-  //Test if textEntered and originText are the same
+
   if (textEntered === originText) {
       clearInterval(interval)
     //Border colour will change to green if text matches exactly
